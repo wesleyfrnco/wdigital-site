@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obrigado pela sua compra | W Digital</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../logo-wdigital.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy-950:#050D1A;
+  --navy-900:#081426;
+  --navy-800:#0C1D36;
+  --line:#1B3355;
+  --cyan:#22D3EE;
+  --text:#E8EEF6;
+  --text-dim:#93A5BD;
+  --text-faint:#5C7291;
+  --radius:16px;
+  --font-display:"Archivo",sans-serif;
+  --font-body:"Inter",sans-serif;
+  --font-mono:"JetBrains Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--navy-950);
+  color:var(--text);
+  font-family:var(--font-body);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+}
+body::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 75% 20%,rgba(34,211,238,.10),transparent 60%),
+    radial-gradient(ellipse 40% 40% at 15% 80%,rgba(34,211,238,.06),transparent 60%);
+  pointer-events:none;
+}
+.card{
+  position:relative;
+  max-width:560px;
+  width:100%;
+  background:var(--navy-900);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:3rem 2.5rem;
+  text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+.check{
+  width:64px;height:64px;
+  margin:0 auto 1.6rem;
+  border-radius:50%;
+  background:rgba(34,211,238,.12);
+  display:flex;align-items:center;justify-content:center;
+}
+.check svg{width:32px;height:32px}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:1rem;
+}
+h1{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:clamp(1.6rem,4vw,2.1rem);
+  letter-spacing:-.02em;
+  margin-bottom:1rem;
+  line-height:1.2;
+}
+p{
+  color:var(--text-dim);
+  font-size:1rem;
+  line-height:1.65;
+  margin-bottom:.8rem;
+}
+.highlight{color:var(--cyan);font-weight:600}
+.divider{
+  height:1px;
+  background:var(--line);
+  margin:2rem 0;
+}
+.next-steps{
+  text-align:left;
+  background:var(--navy-950);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:1.4rem 1.6rem;
+  margin-bottom:1.6rem;
+}
+.next-steps p{margin-bottom:.5rem;font-size:.92rem}
+.next-steps p:last-child{margin-bottom:0}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.9rem 1.8rem;
+  border-radius:10px;
+  background:var(--cyan);
+  color:var(--navy-950);
+  font-weight:600;font-size:.95rem;
+  text-decoration:none;
+  transition:transform .15s, box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(34,211,238,.35)}
+.footer-note{
+  margin-top:1.8rem;
+  font-size:.8rem;
+  color:var(--text-faint);
+}
+.footer-note a{color:var(--text-faint)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5"/>
+      </svg>
+    </div>
+    <div class="eyebrow">Compra confirmada</div>
+    <h1>Obrigado pela sua compra!</h1>
+    <p>Seu acesso ao <span class="highlight">Blindagem de Verba</span> já está liberado. Fique de olho no seu e-mail — você vai receber os dados de acesso à área de membros nos próximos minutos.</p>
+
+    <div class="divider"></div>
+
+    <div class="next-steps">
+      <p>📧 Verifique sua caixa de entrada (e o spam, por garantia)</p>
+      <p>🔑 Use o e-mail cadastrado na compra pra acessar a área de membros</p>
+      <p>💬 Qualquer dúvida, é só chamar no suporte</p>
+    </div>
+
+    <a class="btn" href="https://wa.me/5511921893128?text=Ol%C3%A1!%20Acabei%20de%20comprar%20o%20Blindagem%20de%20Verba%20e%20preciso%20de%20ajuda." target="_blank" rel="noopener">
+      Falar com o suporte
+    </a>
+
+    <p class="footer-note">W Digital · <a href="https://wdigitalads.com.br">wdigitalads.com.br</a></p>
+  </div>
+</body>
+</html>
