@@ -370,6 +370,43 @@ section{padding:clamp(70px,10vh,110px) 0}
   border:1px solid var(--line);color:var(--text-dim);
 }
 
+/* ===== VÍDEO INSTITUCIONAL ===== */
+.video-institucional{background:var(--navy-900);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.video-showcase{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:3.5rem;align-items:center;
+}
+.video-showcase .section-head{margin-bottom:0}
+.video-player{
+  position:relative;
+  aspect-ratio:16/9;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--navy-950);
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+  cursor:pointer;
+}
+.video-player img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .4s ease, filter .4s ease;
+}
+.video-player:hover img{transform:scale(1.03);filter:brightness(.85)}
+.video-player video{width:100%;height:100%;display:block;background:#000}
+.video-player .play-badge{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.video-player .play-badge span{
+  width:76px;height:76px;border-radius:50%;
+  background:rgba(34,211,238,.92);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(34,211,238,.4);
+  transition:transform .2s ease;
+}
+.video-player:hover .play-badge span{transform:scale(1.08)}
+.video-player .play-badge svg{margin-left:4px}
+
 /* ===== CONTATO ===== */
 .contact{background:var(--navy-900);border-top:1px solid var(--line)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
@@ -506,6 +543,7 @@ a:focus-visible,button:focus-visible{
   .services-grid,.cases-grid{grid-template-columns:1fr}
   .method-grid{grid-template-columns:1fr 1fr;gap:2rem}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .video-showcase{grid-template-columns:1fr;gap:2rem}
   .depo-videos{grid-template-columns:1fr}
   .depo-prints{grid-template-columns:1fr}
   .metrics-grid{grid-template-columns:1fr 1fr}
@@ -725,6 +763,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ================= VÍDEO INSTITUCIONAL ================= -->
+<section id="video-institucional" class="video-institucional">
+  <div class="container video-showcase">
+    <div class="video-player reveal" id="videoPlayer" role="button" tabindex="0" aria-label="Reproduzir vídeo institucional da W Digital">
+      <img src="wdigital-thumbnail-video.jpg" alt="Capa do vídeo institucional da W Digital" loading="lazy">
+      <div class="play-badge">
+        <span>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#050D1A"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </div>
+    </div>
+    <div class="section-head reveal">
+      <div class="eyebrow">Vídeo institucional</div>
+      <h2>Assista e entenda o que fazemos</h2>
+      <p>Um resumo direto de como funciona o monitoramento diário e a gestão das campanhas, pra quem prefere ver a explicação em vez de ler os textos acima.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ================= DEPOIMENTOS ================= -->
 <section id="depoimentos" class="depo">
   <div class="container">
@@ -904,6 +961,27 @@ const counterObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 counters.forEach(c => counterObs.observe(c));
+
+// Vídeo institucional: só carrega o arquivo de vídeo no clique
+const videoPlayer = document.getElementById('videoPlayer');
+function loadInstitutionalVideo(){
+  if (videoPlayer.querySelector('video')) return;
+  videoPlayer.innerHTML = '';
+  const video = document.createElement('video');
+  video.src = 'video/institucional-w-digital-youtube.mp4';
+  video.controls = true;
+  video.autoplay = true;
+  video.playsInline = true;
+  videoPlayer.appendChild(video);
+  video.play().catch(() => {});
+}
+videoPlayer.addEventListener('click', loadInstitutionalVideo);
+videoPlayer.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    loadInstitutionalVideo();
+  }
+});
 </script>
 </body>
 </html>
